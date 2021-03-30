@@ -8,10 +8,8 @@ To get started with TDD, see the `README.md` file in your
 
 class Transpose
   def self.transpose(input)
-    arr = []
-    string = input.split('')
-    arr << string
-
-    require 'pry' ; binding.pry
+    input = input.lines
+    size = input.map(&:size).max
+    input.map { |line| line.chomp.ljust(size).chars }.transpose.map(&:join).join("\n").strip
   end
 end
